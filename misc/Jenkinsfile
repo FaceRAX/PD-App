@@ -19,7 +19,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git([url: 'https://github.com/FaceRAX/PD-App.git', branch: 'main', credentialsId: 'd6bc8396-f066-4e4a-9949-c2678b26eba2'])
+        git([url: 'https://github.com/FaceRAX/PD-App.git', branch: 'main', credentialsId: 'GitHubPDapp'])
       }      
     }
     stage('Building image') {
