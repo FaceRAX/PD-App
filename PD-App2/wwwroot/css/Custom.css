@@ -1,0 +1,228 @@
+﻿.input-group-alt {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: table-cell;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: 0;
+}
+
+.currency-input{
+    width:auto !important;
+}
+
+.set-rb-front-mrg{
+    margin-left:1.2em !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.li-spc {
+    margin-bottom: 0.4em;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #4e9edf;
+    color: white;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #4e73df;
+    color:white;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Container holding the image and the text */
+.containerContent {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Centered text */
+.centered-bottom {
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sent-message-box {
+    margin-left: 5em;
+    float: right;
+}
+
+.sent-message-label {
+    font-size: x-small;
+    margin-bottom: 0px;
+    margin-left: 8px;
+    width: 100%;
+    padding-right: 2em;
+}
+
+.sent-message-content {
+    border-radius: 14px;
+    padding: 8px;
+    text-align: right;
+    margin-bottom: 0.2em;
+    display: inline-block;
+    float: right;
+}
+
+.received-message-box {
+    margin-right: 5em;
+    float: left;
+}
+
+.received-message-label {
+    font-size: x-small;
+    margin-bottom: 0px;
+    margin-left: 8px;
+    width:100%;
+}
+
+.received-message-content {
+    border-radius: 14px;
+    padding: 8px;
+    text-align: left;
+    margin-bottom: 0.2em;
+    display: inline-block;
+    float: left;
+}
+
+.btn-cc {
+    background: url(../img/cc.png) scroll no-repeat center center #548abc;
+    border-bottom: 3px solid #345f86;
+}
+
+.btn-cc:hover {
+    color: #fff;
+    background-color: #406d97;
+    border-color: #274866;
+}
+
+.btn-cc:focus, .btn-cc.focus {
+    color: #fff;
+    background-color: #406d97;
+    border-color: #274866;
+    box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
+}
+
+.btn-cc.disabled, .btn-cc:disabled {
+    color: #fff;
+    background-color: #4e73df;
+    border-color: #4e73df;
+}
+
+.btn-cc:not(:disabled):not(.disabled):active, .btn-cc:not(:disabled):not(.disabled).active,
+.show > .btn-cc.dropdown-toggle {
+    color: #fff;
+    background-color: #406d97;
+    border-color: #274866;
+}
+
+.btn-cc:not(:disabled):not(.disabled):active:focus, .btn-cc:not(:disabled):not(.disabled).active:focus,
+.show > .btn-cc.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
+}
