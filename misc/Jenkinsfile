@@ -1,0 +1,75 @@
+pipeline {
+  environment {
+    imagename = "funckyjack/PD-App"
+    registryCredential = 'd28633e1-f84a-4d82-9848-942d87239857'
+    dockerImage = ''
+    envUrl = "(${env.BUILD_URL})"
+    // Slack
+    message = "The pipeline ${currentBuild.fullDisplayName}"
+    // Email
+    subject = "The pipeline ${currentBuild.fullDisplayName}"
+    to = emailextrecipients([
+          [$class: 'CulpritsRecipientProvider'],
+          [$class: 'DevelopersRecipientProvider'],
+          [$class: 'RequesterRecipientProvider']
+    ])        
+    content = '${JELLY_SCRIPT,template="html"}'
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git([url: 'https://github.com/FaceRAX/PD-App.git', branch: 'main'])
+      }      
+    }
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build imagename
+        }
+      }      
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {            
+            dockerImage.push('latest')
+          }          
+        }
+      }      
+    }
+    stage('Remove Unused docker image') {
+      steps{        
+        sh "docker rmi $imagename:latest"
+      }      
+    }
+  }
+  post {       
+    success {      
+      slackSend (color: '#01B11E',
+                message: message + " completed successfully " + envUrl,               
+      )      
+      emailext (          
+          body: content,
+          mimeType: 'text/html',
+          replyTo: '$DEFAULT_REPLYTO',
+          subject: subject + " completed successfully " + envUrl,
+          to: to, 
+          attachLog: true
+      )
+    }
+    failure {      
+      slackSend (color: '#FF0000',
+                message: message + " failed " + envUrl,               
+      )      
+      emailext (          
+          body: content,
+          mimeType: 'text/html',
+          replyTo: '$DEFAULT_REPLYTO',
+          subject: subject + " failed " + envUrl,
+          to: to, 
+          attachLog: true
+      )
+    }    
+  }
+}
