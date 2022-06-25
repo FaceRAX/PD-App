@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    imagename = "funckyjack/PD-App"
+    imagename = "funckyjack/pd_app"
     registryCredential = 'd28633e1-f84a-4d82-9848-942d87239857'
     dockerImage = ''
     envUrl = "(${env.BUILD_URL})"
